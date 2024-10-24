@@ -6,12 +6,17 @@
         {
             for (int i = 0; i < 100; i++)
             {
+                Thread.Sleep(1000);
                 Console.WriteLine(i);
             }
         }
         static void Main(string[] args)
         {
-            DoJob();
+            Task t = new Task(DoJob);
+            t.Start();
+
+            Console.ReadKey();
+
         }
     }
 }
